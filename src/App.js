@@ -90,48 +90,58 @@ function App() {
         <div className="modal">
           <div className="modal-content" ref={modalRef}>
             <h2>Fill Details</h2>
-            <div className="form-field">
-              <label>Username:</label>
-              <input
-                id="username"
-                type="text"
-                value={formData.username}
-                onChange={handleChange}
-              />
-            </div>
+            <form onSubmit={(e) => {
+              e.preventDefault(); 
+              handleSubmit();     
+            }}>
+              <div className="form-field">
+                <label>Username:</label>
+                <input
+                  id="username"
+                  type="text"
+                  value={formData.username}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
 
-            <div className="form-field">
-              <label>Email Address:</label>
-              <input
-                id="email"
-                type="email"
-                value={formData.email}
-                onChange={handleChange}
-              />
-            </div>
-            
-            <div className="form-field">
-              <label>Phone Number:</label>
-              <input
-                id="phone"
-                type="tel"
-                value={formData.phone}
-                onChange={handleChange}
-              />
-            </div>
+              <div className="form-field">
+                <label>Email Address:</label>
+                <input
+                  id="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
 
-            <div className="form-field">
-              <label>Date Of Birth:</label>
-              <input
-                id="dob"
-                type="date"
-                value={formData.dob}
-                onChange={handleChange}
-              />
-            </div>
-            <button className="submit-button" onClick={handleSubmit}>
-              Submit
-            </button>
+              <div className="form-field">
+                <label>Phone Number:</label>
+                <input
+                  id="phone"
+                  type="tel"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <div className="form-field">
+                <label>Date Of Birth:</label>
+                <input
+                  id="dob"
+                  type="date"
+                  value={formData.dob}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <button type="submit" className="submit-button">
+                Submit
+              </button>
+            </form>
           </div>
         </div>
       )}
